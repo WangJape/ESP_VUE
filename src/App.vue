@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style>
-html,
+/* html,
 body {
   margin: 0px;
   height: 100%;
@@ -24,5 +24,5 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-}
+} */
 </style>

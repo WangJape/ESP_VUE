@@ -103,21 +103,14 @@ export default {
       this.$router.push("/login");
     },
     driverAddRows(driver) {
-      const { temperature, humidity } = driver;
-      const dataMap = new Map();
+      const { dhtList } = driver;
       const rows = [];
-      for (let time in temperature) {
-        dataMap.set(time, {
-          时间: time,
-          温度: temperature[time],
+      for (let dht of dhtList) {
+        rows.push({
+          时间: dht.ts,
+          温度: dht.temperature,
+          湿度: dht.humidity,
         });
-      }
-      for (let time in humidity) {
-        let obj = dataMap.get(time);
-        obj.湿度 = humidity[time];
-      }
-      for (let key of dataMap.keys()) {
-        rows.push(dataMap.get(key));
       }
       driver.rows = rows;
     },

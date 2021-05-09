@@ -1,0 +1,71 @@
+{
+  "code": 0,
+  "msg": "成功",
+  "data": [
+    {
+      "clientId": "BTN-02",
+      "userName": "weipeng",
+      "ipAddress": "120.244.224.78",
+      "keepAlive": 15,
+      "ts": "2021-05-08 23:43:47",
+      "lastLogonTime": "2021-05-08 23:43:47",
+      "lastLogoffTime": "2021-05-08 23:43:43",
+      "state": true,
+      "nickName": "三只松鼠",
+      "type": "BTN",
+      "buttonState": false,
+      "dhtList": [],
+      "midea": null
+    },
+    {
+      "clientId": "BTN-03",
+      "userName": "weipeng",
+      "ipAddress": "120.244.224.78",
+      "keepAlive": 15,
+      "ts": "2021-05-08 23:42:48",
+      "lastLogonTime": "2021-05-08 23:42:48",
+      "lastLogoffTime": "2021-05-08 23:42:48",
+      "state": true,
+      "nickName": "客厅北",
+      "type": "BTN",
+      "buttonState": false,
+      "dhtList": [],
+      "midea": null
+    },
+    {
+      "clientId": "MIDEA-01",
+      "userName": "weipeng",
+      "ipAddress": "120.244.224.78",
+      "keepAlive": 15,
+      "ts": "2021-05-09 12:24:27",
+      "lastLogonTime": "2021-05-09 12:24:27",
+      "lastLogoffTime": "2021-05-09 11:46:18",
+      "state": true,
+      "nickName": "空调 温湿度",
+      "type": "MIDEA",
+      "buttonState": null,
+      "dhtList": [
+        {
+          "ts": "2021-05-09 09:21:29",
+          "humidity": 0.0,
+          "temperature": -45.0
+        },
+        {
+          "ts": "2021-05-09 09:22:29",
+          "humidity": 0.0,
+          "temperature": -45.0
+        },
+        {
+          "ts": "2021-05-09 09:23:29",
+          "humidity": 0.0,
+          "temperature": -45.0
+        }
+      ],
+      "midea": {
+        "fan": 5,
+        "tem": 25,
+        "power": true
+      }
+    }
+  ]
+}

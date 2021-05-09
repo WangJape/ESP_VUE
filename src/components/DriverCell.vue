@@ -55,21 +55,31 @@
             <van-switch
               v-if="driver.type === 'BTN'"
               v-model="driver.buttonState"
-              @change="doSwitch()"
+              @change="doSwitch"
+              @click="(e) => e.stopPropagation()"
               :loading="driver.loading"
               active-color="#13ce66"
               inactive-color="#ff4949"
               size="24px"
             />
-            <van-button
-              v-else
-              plain
-              type="primary"
-              size="small"
-              @click="showChartPopup"
-            >
-              <van-icon name="chart-trending-o" />&nbsp;数据
-            </van-button>
+            <div v-else-if="driver.type === 'MIDEA'">
+              <van-button
+                round
+                type="primary"
+                size="small"
+                @click="showChartPopup"
+              >
+                <van-icon name="chart-trending-o" />数据
+              </van-button>
+              <van-button
+                round
+                type="warning"
+                size="small"
+                @click="showInfraredPopup"
+              >
+                <van-icon name="bulb-o" />遥控
+              </van-button>
+            </div>
           </van-col>
         </van-row>
       </template>
@@ -80,6 +90,12 @@
     :title="`[${driver.nickName}]的数据`"
   >
     <THLineChart :id="`thLineChart-${driver.clientId}`" :rows="driver.rows" />
+  </van-action-sheet>
+  <van-action-sheet
+    v-model:show="infraredPopupShow"
+    :title="`[${driver.nickName}]的红外遥控器`"
+  >
+    
   </van-action-sheet>
   <van-action-sheet
     v-model:show="updatePopupShow"
@@ -200,6 +216,7 @@ export default {
     return {
       detailPopupShow: false,
       chartPopupShow: false,
+      infraredPopupShow: false,
       tempDriver: {}, //临时设备对象，用于更新操作
       updatePopupShow: false,
     };
@@ -270,9 +287,7 @@ export default {
               console.error(error);
             });
         })
-        .catch(() => {
-          // on cancel
-        });
+        .catch(() => {});
     },
     doUpdate() {
       const _this = this;
@@ -308,6 +323,10 @@ export default {
     showChartPopup(e) {
       e.stopPropagation();
       this.chartPopupShow = true;
+    },
+    showInfraredPopup(e) {
+      e.stopPropagation();
+      this.infraredPopupShow = true;
     },
     showUpdatePopup(e) {
       e.stopPropagation();
